@@ -9,7 +9,7 @@ const Clients = () => {
                 Kind word from {' '}
                 <span className='text-purple'>Clients && firends</span>
             </h1>
-            <div className='flex flex-col items-center max-lg:mt-10 '>
+            <div className='flex flex-col items-center mt-20 '>
                     <InfiniteMovingCards
                         items={testimonials}
                     

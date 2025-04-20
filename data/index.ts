@@ -210,13 +210,11 @@ export const navItems = [
     {
       id: 1,
       img: "/git.svg",
-    },
-    {
-      id: 2,
-      img: "/twit.svg",
+      link: 'https://github.com/AliRezaAzdast'
     },
     {
       id: 3,
       img: "/link.svg",
+      link: 'www.linkedin.com/in/ali-reza-azdast-ab6936358'
     },
   ];
