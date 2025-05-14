@@ -1,9 +1,37 @@
+'use client'
 import React from 'react'
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
+
 import { projects } from '@/data/index'
 import { PinContainer } from './ui/3d-pin'
 import { FaLocationArrow } from 'react-icons/fa6'
 
 const RecentProjects = () => {
+    gsap.registerPlugin(ScrollTrigger)
+    gsap.registerPlugin(useGSAP);
+    useGSAP(() => {
+        gsap.from('.heading', {
+            scrollTrigger: {
+                trigger: '.heading',
+                start: 'top 70%'
+            },
+            x: -300, opacity:0, duration:2
+        })
+
+        gsap.from('.project-cards', {
+            scrollTrigger: {
+                trigger: '.project-cards',
+                start: 'top 70%',
+            },
+            x: (i) => i % 2 === 0 ? -300 : 300,
+            opacity:0,
+            duration:2,
+            stagger:.5
+        })
+    })
+
     return (
         <div id='projects' className='py-20'>
             <h1 className='heading'>
@@ -13,7 +41,7 @@ const RecentProjects = () => {
             <div className='flex flex-wrap items-center justify-center
         p-4 gap-x-24 gap-y-8 mt-10'>
                 {projects.map(({ id, title, des, img, iconLists, link }) => (
-                    <div key={id} className='sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex items-center justify-center
+                    <div key={id} className='project-cards sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex items-center justify-center
                     sm:w-[570px] w-[80vw] '>
                         <PinContainer title={link} href={link} className=''>
                             <div className='relative flex items-center justify-center
