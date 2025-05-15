@@ -12,9 +12,9 @@ const RecentProjects = () => {
     gsap.registerPlugin(ScrollTrigger)
     gsap.registerPlugin(useGSAP);
     useGSAP(() => {
-        gsap.from('.heading', {
+        gsap.from('.project-heading', {
             scrollTrigger: {
-                trigger: '.heading',
+                trigger: '.project-heading',
                 start: 'top 70%'
             },
             x: -300, opacity:0, duration:2
@@ -34,7 +34,7 @@ const RecentProjects = () => {
 
     return (
         <div id='projects' className='py-20'>
-            <h1 className='heading'>
+            <h1 className='heading project-heading'>
                 A small selection of {' '}
                 <span className='text-purple'>recent projects</span>
             </h1>
